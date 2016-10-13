@@ -21,8 +21,14 @@ void readTokens(char *code, int fileLength);
 int main(int argc, char *argv[])
 {
     FILE *fp = fopen(argv[1], "r");
+
+	if (fp == NULL) {
+		printf("Please enter a input file\n");
+		return -1;
+	}
+
 	char* argument1 = argv[2];
-	char* argument2= argv[3];
+	char* argument2 = argv[3];
 
     int c;
     char *code, *real;
@@ -147,13 +153,13 @@ void readTokens(char *code, int fileLength)
 	// -----------------------------------  Alex's additions ----------------------------------------------
 
         // (
-        
+
         if((code[i] == '(')){
-        
+
         printf("(   \t\t15\n");
-        
+
         i+=1;
-        
+
         }
 
 
@@ -168,7 +174,7 @@ void readTokens(char *code, int fileLength)
         }
 
 	// :
-	
+
 	if(code[i] == ':' && code[i+1] != '=')
         {
             printf("%c \t\t34\n", code[i]);
@@ -176,19 +182,19 @@ void readTokens(char *code, int fileLength)
         }
 
 
-	// =  
-	
+	// =
+
 	if((code[i] == '=')){
-	
+
 	    printf("=   \t\t9 \n");
-	
+
 	        i+=1;
-	
+
 	}
 
 
-	
-	//!=  
+
+	//!=
 
 	if((code[i] == '!') && (code[i+1] == '=')){
 
@@ -340,7 +346,7 @@ void readTokens(char *code, int fileLength)
 
 	//procedure
 
-	if((code[i] == 'p') && (code[i+1] == 'r') && (code[i+2] == 'o') && (code[i+3] == 'c') && (code[i+4] == 'e') && (code[i+5] == 'd') && (code[i+6] == 'u') && 
+	if((code[i] == 'p') && (code[i+1] == 'r') && (code[i+2] == 'o') && (code[i+3] == 'c') && (code[i+4] == 'e') && (code[i+5] == 'd') && (code[i+6] == 'u') &&
 	(code[i+7] == 'r') && (code[i+8] == 'e')){
 
             printf("procedure   \t30\n");
